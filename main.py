@@ -7,7 +7,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 from dotenv import load_dotenv
 import os
 
-load_dotenv
+load_dotenv()
 
 
 API_KEY = os.getenv("API_KEY")
@@ -80,13 +80,20 @@ def fetch_with_retry(url, params,headers,max_retries = 5, initial_wait = 2):
 
 
 # GET REQUEST FOR THE DATA
+
+page_count = 0
+max_pages = 5
+
 while True:
     params = {
-        "seasons[]": SEASON
+        "seasons[]": SEASON,
+        "postseason": "0"
     }
 
     if cursor:
         params["cursor"] = cursor
+    
+
     try:
         data = fetch_with_retry(url = BASE_URL, params=params, headers=headers)
         if not data:
@@ -101,6 +108,10 @@ while True:
         
         if not cursor:
             break # no more pages
+        page_count +=1
+        if page_count >=max_pages:
+            print(f"Reached the maximum number of pages ({max_pages}). Stopping.")
+            break
         time.sleep(1)
     except requests.exceptions.RequestException as e:
         print(f"Error fetching data: {e}")
