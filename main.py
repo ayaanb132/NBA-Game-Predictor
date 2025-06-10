@@ -4,8 +4,13 @@ import time
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix
+from dotenv import load_dotenv
+import os
 
-API_KEY = "f062f722-9104-4292-bab5-fc3ed63a7f69"
+load_dotenv
+
+
+API_KEY = os.getenv("API_KEY")
 
 
 BASE_URL = "https://api.balldontlie.io/v1/games" # URL for nba games API
