@@ -3,7 +3,7 @@ import re
 import nbformat
 from nbformat.v4 import new_notebook, new_code_cell
 
-import_path = "/Users/ayaanbaig/Desktop/nba_model_predictor/nba_data"  # change this to your actual folder
+import_path = "/Users/ayaanbaig/Desktop/HomeCourt_AI/nba_data"  # change this to your actual folder
 csv_files = [f for f in os.listdir(import_path) if f.endswith('.csv')]
 
 nb = new_notebook()
