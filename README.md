@@ -1,108 +1,87 @@
-# 🏀 HomeCourt AI - NBA Game Prediction System
+# 🏀 HomeCourt AI – Predicting NBA Home Team Wins with Machine Learning
 
-> **A comprehensive machine learning solution for NBA game outcome prediction using advanced basketball analytics**
+**HomeCourt AI** is an end-to-end machine learning project that predicts whether the home team will win a given NBA game using over 75 years of professional basketball data. It showcases skills in data engineering, feature selection, modeling, and (soon) deployment — all tied together in a real-world sports analytics application.
+
+> ⚡ **Tech Stack**: Python, Pandas, Scikit-learn, Jupyter, NumPy\
+> 📊 **ML Models**: Logistic Regression, Decision Trees *(XGBoost planned)*\
+> 🚀 **Next Steps**: Model API, Streamlit dashboard, live data integration
 
 ---
 
-## 📋 Project Overview
+## 📌 Project Highlights
 
-HomeCourt AI is a sports analytics project leveraging complete NBA datasets (from 1946 onward) and machine learning to predict basketball game outcomes. The system integrates, cleans, and analyzes historical team and player data to deliver informed, data-driven predictions on home game winners.
+✅ Built a binary classification model to predict home team wins\
+✅ Engineered features from player, team, and game stats (1946–present)\
+✅ Cleaned and merged multiple complex CSV datasets\
+✅ Designed modular code for data prep, training, and evaluation\
+✅ Visualized performance with accuracy metrics and test predictions\
+✅ Created a custom Jupyter viewer for manual data inspection
 
-## 🎯 Core Objectives
+---
 
-The project’s goal is to build a robust, transparent predictive model that uses the depth of historical NBA performance data to forecast home team victories. By integrating and processing detailed basketball statistics, the model aims to surface key factors that influence game outcomes.
+## 📁 Folder Structure
 
-## ⚙️ System Architecture
+```
+HomeCourt-AI/
+├── nba_data/              # Raw NBA stats (games, players, teams)
+├── main.py                # Main training & prediction pipeline
+├── jupyter_converter.py   # Converts CSVs into notebook-friendly format
+├── csv_viewer.ipynb       # Explore datasets and debug issues
+├── requirements.txt       # Python dependencies
+└── README.md              # You're here!
+```
 
-### Data Processing Pipeline
-- 📊 **Data Ingestion:** Combines and cleans comprehensive NBA datasets (player, team, and matchup data from 1946 to present).
-- 🔍 **Exploratory Analysis:** Jupyter notebooks for visualization and pattern discovery.
-- 🛠️ **Feature Engineering:** Merging multiple data sources and transforming statistics into usable inputs.
-- 🤖 **Model Training:** Initial machine learning models implemented for home win prediction.
-- 📈 **Prediction Engine:** Produces simple outcome probabilities for upcoming matchups.
+---
 
-### Dataset Portfolio
-| Dataset Category       | Description                                         |
-|-----------------------|-----------------------------------------------------|
-| 📈 Player Statistics  | Box score, advanced stats, and shooting analytics   |
-| 🏆 Team Performance   | Season results, team metrics, and win/loss totals   |
-| ⭐ All-Star Data      | Elite player selections and achievements            |
-| 🎯 Advanced Analytics | Efficiency ratings and composite metrics            |
-| 👥 Player Directory   | Biographical and career information                 |
-| 🏟️ Game History      | Historical matchups and venue-specific performance  |
+## 🔮 Prediction Objective
 
-## 💼 Business Value Proposition
+> Given a matchup, predict whether the **home team** wins (`1`) or loses (`0`).
 
-### Technical Competencies Demonstrated
-- ✅ Dataset integration and manipulation at scale
-- ✅ Predictive modeling and algorithm development
-- ✅ In-depth statistical and sports analytics
-- ✅ Clean, maintainable Python codebase
-- ✅ Data visualization for actionable insights
+### Features used:
 
-### Practical Applications
-- 🎲 Sports Betting Analytics
-- 📊 Team Performance Evaluation
-- 🏀 Player Assessment Tools
-- 📈 Season Outcome Projections
+- Team performance averages
+- Player stats (PPG, RPG, AST, etc.)
+- Game metadata (home/away, season, outcome)
+- Opponent statistics
+- *(Coming soon)* Momentum, injuries, and team fatigue factors
 
-## 🚀 Development Roadmap
+---
 
-### ✔️ Current Milestones (Completed)
-- Comprehensive dataset integration (team and player stats combined, game history from 1946 onward)
-- Exploratory data analysis and visualization framework
-- Data merging and cleaning pipeline
-- Baseline home win prediction model implemented
+## 📈 Model Performance (Initial Results)
 
-### ⏭️ Next Steps (In Progress)
-- Advanced feature engineering (injury data, matchup history, momentum factors)
-- Model optimization (ensemble methods, hyperparameter tuning)
-- Enhanced model validation and reporting
+| Model               | Accuracy | Notes                        |
+| ------------------- | -------- | ---------------------------- |
+| Logistic Regression | \~XX%    | Baseline model               |
+| Decision Tree       | \~XX%    | Overfitting on small samples |
+| Random Forest       | Coming   |                              |
 
-### 🟦 Future Directions
-- Automated data updates and ongoing retraining
-- RESTful API for predictions
-- Interactive dashboard for results and deep dives
+> 🔧 Future iterations will include model tuning, cross-validation, and ensembling for better generalization.
 
-## 🛠️ Technical Stack
-- **Language:** Python 3.x
-- **ML Framework:** Scikit-learn
-- **Data Analysis:** Pandas, NumPy
-- **Visualization:** Jupyter Notebooks
-- **Version Control:** Git/GitHub
+---
 
-## 📚 Getting Started
+## 🧠 Roadmap
 
-### Prerequisites
-- Python 3.7 or higher
-- Jupyter Notebook
+-
 
-### Installation & Setup
+---
+
+## 🛠 Setup Instructions
+
 ```bash
-# Clone the repository
 git clone https://github.com/ayaanb132/HomeCourt-AI.git
-
-# Navigate to project directory
 cd HomeCourt-AI
-
-# Install dependencies
 pip install -r requirements.txt
-
-# Launch data exploration environment
-jupyter notebook csv_viewer.ipynb
-
-# Run prediction model
 python main.py
 ```
 
-## 📊 Performance Metrics
-*Model evaluation and accuracy metrics will be updated as development progresses.*
+You can also explore datasets using the `csv_viewer.ipynb` notebook.
 
 ---
 
-### 🏀 About This Project
-*HomeCourt AI is an independent research initiative in sports analytics and machine learning. Not affiliated with the NBA – developed for educational and portfolio demonstration purposes.*
+## 📬 Contact & Contribution
 
-**Developer:** [@ayaanb132](https://github.com/ayaanb132) | **Project Status:** Active Development ⚡
+Feel free to reach out or open an issue if you want to contribute ideas, models, or datasets.
 
----
+📧 [ayaanb132@gmail.com](mailto\:ayaanb132@gmail.com)\
+📍 Built by Ayaan B. – *Computer Science @ Wilfrid Laurier University*
+
