@@ -59,9 +59,20 @@ HomeCourt-AI/
 
 ---
 
+
 ## 🧠 Roadmap
 
--
+- ✅ Combined team_totals.csv and team_summaries.csv into one unified dataset for more comprehensive team statistics.
+- ✅ Created a function to simulate game-level data from season statistics, enabling better feature engineering for models.
+- ✅ Loaded and processed player stats for each season; display summary statistics and key information in the pipeline.
+- ✅ Updated Jupyter converter script to better handle CSV imports (minor improvements).
+- ⏳ Next Steps:
+  - Develop and expose a Model API for predictions.
+  - Build a Streamlit dashboard for interactive results and visualizations.
+  - Integrate live NBA data for real-time predictions.
+  - Add advanced features: momentum, injuries, and team fatigue factors.
+  - Tune models and implement ensemble methods (XGBoost, Random Forest).
+  - Optimize code for modularity and scalability.
 
 ---
 
