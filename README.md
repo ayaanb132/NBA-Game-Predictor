@@ -4,82 +4,80 @@
 
 ---
 
-## 📋 **Project Overview**
+## 📋 Project Overview
 
-HomeCourt AI is a sophisticated sports analytics project that leverages comprehensive NBA datasets and machine learning techniques to predict basketball game outcomes. This system demonstrates proficiency in data science, statistical analysis, and predictive modeling within the sports analytics domain.
+HomeCourt AI is a sports analytics project leveraging complete NBA datasets (from 1946 onward) and machine learning to predict basketball game outcomes. The system integrates, cleans, and analyzes historical team and player data to deliver informed, data-driven predictions on home game winners.
 
-## 🎯 **Core Objectives**
+## 🎯 Core Objectives
 
-The primary goal is to develop a robust predictive model that analyzes historical NBA performance data to forecast home game winners. By processing extensive basketball statistics and player performance metrics, the system identifies patterns and trends that influence game outcomes.
+The project’s goal is to build a robust, transparent predictive model that uses the depth of historical NBA performance data to forecast home team victories. By integrating and processing detailed basketball statistics, the model aims to surface key factors that influence game outcomes.
 
-## ⚙️ **System Architecture**
+## ⚙️ System Architecture
 
-### **Data Processing Pipeline**
-- 📊 **Data Ingestion:** Utilizes comprehensive NBA datasets covering multiple seasons
-- 🔍 **Exploratory Analysis:** Interactive Jupyter notebooks for data visualization and pattern discovery  
-- 🛠️ **Feature Engineering:** Transforms raw statistics into meaningful predictive features
-- 🤖 **Model Training:** Implements machine learning algorithms to identify winning patterns
-- 📈 **Prediction Engine:** Generates outcome probabilities for upcoming matchups
+### Data Processing Pipeline
+- 📊 **Data Ingestion:** Combines and cleans comprehensive NBA datasets (player, team, and matchup data from 1946 to present).
+- 🔍 **Exploratory Analysis:** Jupyter notebooks for visualization and pattern discovery.
+- 🛠️ **Feature Engineering:** Merging multiple data sources and transforming statistics into usable inputs.
+- 🤖 **Model Training:** Initial machine learning models implemented for home win prediction.
+- 📈 **Prediction Engine:** Produces simple outcome probabilities for upcoming matchups.
 
-### **Dataset Portfolio**
-Our robust data foundation includes:
+### Dataset Portfolio
+| Dataset Category       | Description                                         |
+|-----------------------|-----------------------------------------------------|
+| 📈 Player Statistics  | Box score, advanced stats, and shooting analytics   |
+| 🏆 Team Performance   | Season results, team metrics, and win/loss totals   |
+| ⭐ All-Star Data      | Elite player selections and achievements            |
+| 🎯 Advanced Analytics | Efficiency ratings and composite metrics            |
+| 👥 Player Directory   | Biographical and career information                 |
+| 🏟️ Game History      | Historical matchups and venue-specific performance  |
 
-| Dataset Category | Description |
-|-----------------|-------------|
-| 📈 **Player Statistics** | Individual performance metrics and shooting analytics |
-| 🏆 **Team Performance** | Historical win/loss records and advanced team metrics |
-| ⭐ **All-Star Data** | Elite player selections and career achievements |
-| 🎯 **Advanced Analytics** | Efficiency ratings, plus/minus, and composite statistics |
-| 👥 **Player Directory** | Comprehensive biographical and career information |
-| 🏟️ **Game History** | Historical matchup data and venue-specific performance |
+## 💼 Business Value Proposition
 
-## 💼 **Business Value Proposition**
+### Technical Competencies Demonstrated
+- ✅ Dataset integration and manipulation at scale
+- ✅ Predictive modeling and algorithm development
+- ✅ In-depth statistical and sports analytics
+- ✅ Clean, maintainable Python codebase
+- ✅ Data visualization for actionable insights
 
-### **Technical Competencies Demonstrated:**
-- ✅ **Data Science Expertise:** Large-scale dataset manipulation and analysis
-- ✅ **Machine Learning Implementation:** Predictive modeling and algorithm optimization
-- ✅ **Statistical Analysis:** Sports analytics and performance metric evaluation
-- ✅ **Software Development:** Clean, maintainable code architecture
-- ✅ **Data Visualization:** Clear insights through analytical dashboards
+### Practical Applications
+- 🎲 Sports Betting Analytics
+- 📊 Team Performance Evaluation
+- 🏀 Player Assessment Tools
+- 📈 Season Outcome Projections
 
-### **Practical Applications:**
-- 🎲 **Sports Betting Analytics**
-- 📊 **Team Performance Evaluation** 
-- 🏀 **Player Assessment Tools**
-- 📈 **Season Outcome Projections**
+## 🚀 Development Roadmap
 
-## 🚀 **Development Roadmap**
+### ✔️ Current Milestones (Completed)
+- Comprehensive dataset integration (team and player stats combined, game history from 1946 onward)
+- Exploratory data analysis and visualization framework
+- Data merging and cleaning pipeline
+- Baseline home win prediction model implemented
 
-### **Current Phase - Foundation**
-- [x] Comprehensive dataset integration
-- [x] Exploratory data analysis framework
-- [x] Basic prediction model implementation
+### ⏭️ Next Steps (In Progress)
+- Advanced feature engineering (injury data, matchup history, momentum factors)
+- Model optimization (ensemble methods, hyperparameter tuning)
+- Enhanced model validation and reporting
 
-### **Next Phase - Enhancement**
-- [ ] **Advanced Feature Engineering:** Injury reports, momentum indicators, matchup history
-- [ ] **Model Optimization:** Ensemble methods, hyperparameter tuning
-- [ ] **Performance Analytics:** Model validation and accuracy metrics
-- [ ] **User Interface:** Interactive dashboard for predictions and insights
+### 🟦 Future Directions
+- Automated data updates and ongoing retraining
+- RESTful API for predictions
+- Interactive dashboard for results and deep dives
 
-### **Future Phase - Deployment**
-- [ ] **Production Pipeline:** Automated data updates and model retraining
-- [ ] **API Development:** RESTful services for prediction access
-- [ ] **Visualization Dashboard:** Professional-grade analytics interface
-
-## 🛠️ **Technical Stack**
+## 🛠️ Technical Stack
 - **Language:** Python 3.x
 - **ML Framework:** Scikit-learn
 - **Data Analysis:** Pandas, NumPy
 - **Visualization:** Jupyter Notebooks
 - **Version Control:** Git/GitHub
 
-## 📚 **Getting Started**
+## 📚 Getting Started
 
-### **Prerequisites**
+### Prerequisites
 - Python 3.7 or higher
-- Jupyter Notebook environment
+- Jupyter Notebook
 
-### **Installation & Setup**
+### Installation & Setup
 ```bash
 # Clone the repository
 git clone https://github.com/ayaanb132/HomeCourt-AI.git
@@ -97,12 +95,14 @@ jupyter notebook csv_viewer.ipynb
 python main.py
 ```
 
-## 📊 **Performance Metrics**
-*Model evaluation and accuracy metrics to be updated as development progresses*
+## 📊 Performance Metrics
+*Model evaluation and accuracy metrics will be updated as development progresses.*
 
 ---
 
-### 🏀 **About This Project**
-*This project is an independent research initiative focused on sports analytics and machine learning applications. Not affiliated with the NBA - developed for educational and portfolio demonstration purposes.*
+### 🏀 About This Project
+*HomeCourt AI is an independent research initiative in sports analytics and machine learning. Not affiliated with the NBA – developed for educational and portfolio demonstration purposes.*
 
 **Developer:** [@ayaanb132](https://github.com/ayaanb132) | **Project Status:** Active Development ⚡
+
+---
