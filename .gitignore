@@ -1,12 +1,27 @@
-# Ignore Python virtual environment folder
+# Python virtual environments
 venv/
+myenv/
+env/
 
-# Ignore environment variable file
+# Environment variables
 .env
 
-# Ignore __pycache__ and compiled Python files
+# Python bytecode
 __pycache__/
 *.pyc
 
-# Ignore Jupyter notebook checkpoints if any
+# Jupyter checkpoints
 .ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+
+# macOS metadata
+.DS_Store
+
+# Testing and type checking caches
+.pytest_cache/
+.mypy_cache/
+*.log
+coverage/
+*.cover
