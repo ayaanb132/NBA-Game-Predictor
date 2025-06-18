@@ -11,10 +11,10 @@ import matplotlib.pyplot as plt
 warnings.filterwarnings('ignore')
 
 # Load NBA data files and combine team stats from multiple sources
-player_stats = pd.read_csv('/Users/ayaanbaig/Desktop/HomeCourt_AI/nba_data/Player Per Game.csv')
+player_stats = pd.read_csv('nba_data/Player Per Game.csv')
 
-team_summaries = pd.read_csv('/Users/ayaanbaig/Desktop/HomeCourt_AI/nba_data/Team Summaries.csv')
-team_totals = pd.read_csv('/Users/ayaanbaig/Desktop/HomeCourt_AI/nba_data/Team Totals.csv')
+team_summaries = pd.read_csv('nba_data/Team Summaries.csv')
+team_totals = pd.read_csv('nba_data/Team Totals.csv')
 team_totals_subset = team_totals[['season', 'team', 'lg', 'g', 'pts', 'fg_percent']]
 
 # Combine team summary data with team totals data 
@@ -110,6 +110,7 @@ for col in team_season_stats.columns:
         columns_to_remove.append(col)
 columns_to_remove.extend(manual_remove)
 
+columns_to_remove = [col for col in columns_to_remove if col in team_season_stats.columns]
 team_season_stats.drop(columns=columns_to_remove, inplace=True)
 
 print(f"\nCleaned dataset shape: {team_season_stats.shape}")
@@ -175,14 +176,6 @@ def create_game_data(season_stats, n_games_per_season=50):
     return pd.DataFrame(games)
 
 
-# Build simulated game-set
-print("creating game-level data from season statistics...")
-games_df = create_game_data(team_season_stats,n_games_per_season=100)
-print(f"Created {len(games_df)} game records")
-print("\nSample game data:")
-print(games_df.head())
-
-
 def engineer_features(games_df):
     """
     -------------------------------------------------------
@@ -226,18 +219,6 @@ def engineer_features(games_df):
     return df
 
 
-print("Engineering features....")
-games_df = engineer_features(games_df)
-
-
-# Show the new features we created
-
-print("Engineered features:")
-feature_columns = ['home_win_pct', 'away_win_pct', 'win_pct_diff','ppg_diff','fg_pct_diff','home_court_advantage','home_team_strong','away_team_strong']
-print(games_df[feature_columns].head())
-
-print("\nFeature statistics:")
-print(games_df[feature_columns].describe())
 
 
 def create_target_variable(df):
@@ -277,6 +258,90 @@ def create_target_variable(df):
     return df
 
 # Create our target variable (what we want to predict)
+
+def main():
+    """ Main execution function - runs all the analysis"""
+
+    #build simulated game-set
+
+    print("creating game-level data from season statistics...")
+    games_df = create_game_data(team_season_stats,n_games_per_season=100)
+    print(f"Created {len(games_df)} game records")
+    print("\nSample game data")
+    print(games_df.head())
+
+    print("Engineering features...")
+    games_df=engineer_features(games_df)
+
+    # show new features created
+
+    print("Engineered features")
+    feature_columns = ['home_win_pct', 'away_win_pct','win_pct_diff','fg_pct_diff','home_team_strong','away_team_strong']
+    print(games_df[feature_columns].head())
+
+    #create target variable to predict
+
+    print("Creating target varibale")
+    games_df = create_target_variable(games_df)
+
+    # see how often home teams win in simulated data
+
+    print("Home team win distribution:")
+    print(games_df['home_team_win'].value_counts())
+    print(f"Home team win rate: {games_df['home_team_win'].mean() * 100:.3f}")
+
+    correlation_with_target = games_df[feature_columns + ['home_team_win']].corr()['home_team_win'].sort_values(ascending=False)
+    print("\nCorrelation with home team wins:")
+    print(correlation_with_target)
+
+    # build and train ML model
+
+    #set up data for ML model
+    feature_columns_for_model = ['home_win_pct','away_win_pct,win_pct_diff','ppg_diff','fg_pct_diff','home_team_strong','away_team_strong']
+
+    X = games_df[feature_columns_for_model]
+    y = games_df['home_team_win']
+
+    print("features for modeling:")
+    print(X.head())
+    print(f"\nFeature matrix shape: {X.shape}")
+    print(f"Target vector shape: {y.shape}")
+
+    #split data into 80/20 training and testing
+
+    X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42,stratify=y)
+
+    print(f"\nTraining set size: {X_train.shape[0]} games")
+    print(f"Testing set size: {X_test.shape[0]} games")
+    print(f"Training set home win rate: {y_train.mean():.3f}")
+    print(f"Testing set home win rate: {y_test.mean():.3f}")
+
+    # scale features 
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+
+    print("Feature scaling completed")
+    print("Training features mean after scaling: ", X_train_scaled.mean(axis=0.round(3))))
+
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 print("Creating target varibale...")
 games_df = create_target_variable(games_df)
