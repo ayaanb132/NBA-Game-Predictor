@@ -91,7 +91,7 @@ graph LR
 ### 📈 Statistical Modeling Suite
 - **Logistic Regression**: Current production model with 60.1% accuracy
 - **Decision Trees**: In development for interpretable rule-based predictions
-- **Gradient Boosting**: XGBoost implementation planned for Q3 2025
+- **Gradient Boosting**: XGBoost implementation planned 
 - **Neural Networks**: Deep learning architecture roadmap for complex pattern recognition
 
 ### 🎨 Visualization & Reporting
@@ -115,17 +115,17 @@ HomeCourt-AI/
 ├── 🔧 jupyter_converter.py         # Data preprocessing utilities
 ├── 📊 csv_viewer.ipynb             # Interactive data exploration
 ├── 📋 requirements.txt             # Python dependencies
-├── 🚀 api/                         # FastAPI prediction endpoints (Coming Q3)
-├── 🎨 dashboard/                   # Streamlit visualization app (Coming Q4)
-├── 🧪 tests/                       # Unit tests & validation (Coming Q3)
-└── 📚 docs/                        # Technical documentation (Coming Q4)
+├── 🚀 api/                         # FastAPI prediction endpoints (Coming soon)
+├── 🎨 dashboard/                   # Streamlit visualization app (Coming soon)
+├── 🧪 tests/                       # Unit tests & validation (Coming soon)
+└── 📚 docs/                        # Technical documentation (Coming soon)
 ```
 
 ---
 
 ## 🔮 Roadmap & Future Development
 
-### 🚀 Phase 1: Model Enhancement (Q3 2025)
+### 🚀 Phase 1: Model Enhancement (In Development)
 - [ ] **Advanced Ensemble Methods**
   - XGBoost implementation with hyperparameter optimization
   - Random Forest with feature bagging
@@ -136,7 +136,7 @@ HomeCourt-AI/
   - Head-to-head historical matchup weights
   - Recent form momentum indicators (L10 games)
 
-### ⚡ Phase 2: Real-time Integration (Q4 2025)
+### ⚡ Phase 2: Real-time Integration (Coming Soon)
 - [ ] **Live Data Pipeline**
   - NBA API integration for real-time statistics
   - Automated daily model retraining
@@ -148,7 +148,7 @@ HomeCourt-AI/
   - Rate limiting and authentication
   - Comprehensive API documentation
 
-### 🎨 Phase 3: User Experience (Q1 2026)
+### 🎨 Phase 3: User Experience (Coming Soon)
 - [ ] **Interactive Dashboard**
   - Streamlit-based prediction interface
   - Real-time confidence intervals and uncertainty visualization
@@ -160,7 +160,7 @@ HomeCourt-AI/
   - Social features and prediction leaderboards
   - Offline prediction capabilities
 
-### 🧠 Phase 4: Advanced AI (Q2 2026)
+### 🧠 Phase 4: Advanced AI (Coming Soon)
 - [ ] **Deep Learning Architecture**
   - LSTM networks for temporal pattern recognition
   - Transformer models for player performance sequences  
@@ -262,8 +262,8 @@ We welcome contributions from data scientists, basketball analysts, and ML engin
 
 **Ayaan Baig** – *Computer Science @ Wilfrid Laurier University*  
 📧 [ayaanb132@gmail.com](mailto:ayaanb132@gmail.com)  
-💼 [LinkedIn](https://linkedin.com/in/ayaanbaig) | 🐱 [GitHub](https://github.com/ayaanb132)  
-📍 Milton, Ontario, Canada
+💼 [LinkedIn](https://www.linkedin.com/in/ayaan-baig-a97513291/) | 🐱 [GitHub](https://github.com/ayaanb132)  
+📍 Ontario, Canada
 
 ---
 
