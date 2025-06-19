@@ -25,7 +25,7 @@ team_stats = pd.merge(
     how='inner'
 )
 
-player_totals = pd.read_csv('/Users/ayaanbaig/Desktop/HomeCourt_AI/nba_data/Player Totals.csv')
+player_totals = pd.read_csv('nba_data/Player Totals.csv')
 
 # Show basic info about our datasets
 
@@ -322,139 +322,68 @@ def main():
     X_test_scaled = scaler.transform(X_test)
 
     print("Feature scaling completed")
-    print("Training features mean after scaling: ", X_train_scaled.mean(axis=0.round(3))))
+    print("Training features mean after scaling: ", X_train_scaled.mean(axis=0).round(3))
+    print("Training features std after scaling: ",X_train_scaled.std(axis=0).round(3))
+
+    model = LogisticRegression(random_state=42, max_iter=1000)
+    model.fit(X_train_scaled,y_train)
+
+    print("\nModel training completed")
+
+    # test the training model on data it hasnt seen before
+
+    y_pred = model.predict(X_test_scaled)
+    y_pred_prob = model.predict_proba(X_test_scaled)[:, 1] # gets scores for home team
+
+    print("predictions generated")
+    print(f"Predicted home wins: {y_pred.sum()}")
+    print(f"Actual home wins: {y_test.sum()}")
+
+    # Analysis on model results
+
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f"Model accuracy: {accuracy:.3f}")
+    print("\nClassification Report:")
+    print(classification_report(y_test,y_pred,target_names=['Away Win', 'Home Win']))
+
+    cm = confusion_matrix(y_test, y_pred)
+
+    print("\nConfusion Matrix")
+    print("                 Predicted Away Win   Predicted Home Win") 
+    print(f"Actual Away Win  {cm[0, 0]:>14}   {cm[0, 1]:>15}")   
+    print(f"Actual Home Win  {cm[1, 0]:>14}   {cm[1, 1]:>15}")   
+
+    plt.figure(figsize=(6, 5))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+                xticklabels=['Predicted Away Win', 'Predicted Home Win'], # Corrected x-axis labels
+                yticklabels=['Actual Away Win', 'Actual Home Win'])   # Corrected y-axis labels
+    plt.xlabel("Predicted Label")
+    plt.ylabel("True Label")
+    plt.title("Confusion Matrix Heatmap")
+    plt.tight_layout()
+    plt.show()
+
+    # Find out which features are most important for predictions
+    feature_importance = pd.DataFrame({
+        'feature': feature_columns_for_model,
+        'coefficient': model.coef_[0],
+        'abs_coefficient': np.abs(model.coef_[0])
+    }).sort_values('abs_coefficient',ascending=False)
+
+    print("\nFeature Importance (Logistic Regression Coefficients:)")
+    print(feature_importance)
+
+    # Explain what the model learned in plain English
+    print("\nModel Interpretation:")
+    for idx, row in feature_importance.iterrows():
+        direction = "increases" if row['coefficient'] > 0 else "decreases"
+        impact = "strong" if row['abs_coefficient'] > 0.1 else "moderate" if row['abs_coefficient'] > 0.05 else "weak"
+        print(f"- {row['feature']}: {direction} home team win probability ({impact} impact)")
+
+    # Return useful objects for potential reuse
+    return games_df, model, scaler, feature_columns_for_model
 
 
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-print("Creating target varibale...")
-games_df = create_target_variable(games_df)
-
-# See how often home teams win in our fake data
-
-print("Home team win distribution:")
-print(games_df['home_team_win'].value_counts())
-print(f"Home team win rate: {games_df['home_team_win'].mean() * 100:.3f}%")
-
-correlation_with_target = games_df[feature_columns + ['home_team_win']].corr()['home_team_win'].sort_values(ascending=False)
-print("\nCorrelation with home team wins:")
-print(correlation_with_target)
-
-
-# Build and train the machine learning model
-
-# Set up the data for our machine learning model
-
-feature_columns_for_model = ['home_win_pct', 'away_win_pct', 'win_pct_diff','ppg_diff','fg_pct_diff']
-
-X = games_df[feature_columns_for_model]
-y = games_df['home_team_win']
-
-print("Features for modeling:")
-print(X.head())
-print(f"\nFeature matrix shape: {X.shape}")
-print(f"Target vector shape: {y.shape}")
-
-# Split data into training (80%) and testing (20%) sets
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42, stratify=y
-)
-
-print(f"\nTraining set size: {X_train.shape[0]} games")
-print(f"Testing set size: {X_test.shape[0]} games")
-print(f"Training set home win rate: {y_train.mean():.3f}")
-print(f"Testing set home win rate: {y_test.mean():.3f}")
-
-# Scale features so they're all on the same scale (helps the model train better)
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-
-print("Feature scaling completed")
-print("Training features mean after scaling: ", X_train_scaled.mean(axis=0).round(3))
-print("Training features std after scaling: ", X_train_scaled.std(axis=0).round(3))
-
-# Create and train a logistic regression model
-
-model = LogisticRegression(random_state=42, max_iter=1000)
-model.fit(X_train_scaled,y_train)
-
-print("\nModel training completed!")
-
-# Test the trained model on data it hasn't seen before
-
-y_pred = model.predict(X_test_scaled)
-y_pred_prob = model.predict_proba(X_test_scaled)[:,1] # Get probability scores for home team wins
-
-print("Predicitons generated")
-print(f"Predicted home wins: {y_pred.sum()}")
-print(f"Actual home wins: {y_test.sum()}")
-
-# Test the model and see how well it predicts game outcomes
-
-accuracy = accuracy_score(y_test, y_pred)
-print(f"Model Accuracy: {accuracy:.3f}")
-print("\nClassification Report:")
-print(classification_report(y_test, y_pred, target_names=['Away Win', 'Home Win']))
-
-
-cm = confusion_matrix(y_test, y_pred)
-
-print("\nConfusion Matrix")
-
-print("                 Predicted Away Win   Predicted Home Win") 
-print(f"Actual Away Win  {cm[0, 0]:>14}   {cm[0, 1]:>15}")   
-print(f"Actual Home Win  {cm[1, 0]:>14}   {cm[1, 1]:>15}")   
-
-
-
-# visual heatmap of confusion matrix
-plt.figure(figsize=(6, 5))
-sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
-            xticklabels=['Predicted Away Win', 'Predicted Home Win'], # Corrected x-axis labels
-            yticklabels=['Actual Away Win', 'Actual Home Win'])   # Corrected y-axis labels
-plt.xlabel("Predicted Label")
-plt.ylabel("True Label")
-plt.title("Confusion Matrix Heatmap")
-plt.tight_layout()
-plt.show()
-
-
-# Find out which features are most important for predictions
-
-feature_importance = pd.DataFrame({
-    'feature': feature_columns_for_model,
-    'coefficient': model.coef_[0],
-    'abs_coefficient': np.abs(model.coef_[0])
-}).sort_values('abs_coefficient',ascending=False)
-
-print("\nFeature Importance (Logistic Regression Coefficients:)")
-print(feature_importance)
-
-# Explain what the model learned in plain English
-# ...existing code...
-print("\nModel Interpretation:")
-for idx, row in feature_importance.iterrows():
-    direction = "increases" if row['coefficient'] > 0 else "decreases"
-    impact = "strong" if row['abs_coefficient'] > 0.1 else "moderate" if row['abs_coefficient'] > 0.05 else "weak"
-    print(f"- {row['feature']}: {direction} home team win probability ({impact} impact)")
-
-
+if __name__ == "__main__":
+    main()
 
