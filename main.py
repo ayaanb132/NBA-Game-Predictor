@@ -297,7 +297,7 @@ def main():
     # build and train ML model
 
     #set up data for ML model
-    feature_columns_for_model = ['home_win_pct','away_win_pct,win_pct_diff','ppg_diff','fg_pct_diff','home_team_strong','away_team_strong']
+    feature_columns_for_model = ['home_win_pct','away_win_pct','win_pct_diff','ppg_diff','fg_pct_diff','home_team_strong','away_team_strong']
 
     X = games_df[feature_columns_for_model]
     y = games_df['home_team_win']
