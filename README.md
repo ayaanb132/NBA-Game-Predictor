@@ -267,7 +267,7 @@ streamlit run app.py
 
 ### Expected Output (Web App)
 ```
-🌐 Streamlit app running on: http://localhost:8501
+🌐 Streamlit app running on: https://homecourtai.streamlit.app
 🏀 Interactive NBA prediction interface loaded
 📊 Real-time model performance dashboard available
 🔮 Live prediction engine ready for team selection
