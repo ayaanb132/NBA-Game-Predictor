@@ -2,25 +2,61 @@
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![Scikit-learn](https://img.shields.io/badge/Scikit--learn-Latest-orange.svg)](https://scikit-learn.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Interactive_App-red.svg)](https://streamlit.io)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Accuracy](https://img.shields.io/badge/Model_Accuracy-60.1%25-brightgreen.svg)](README.md)
 [![Data Coverage](https://img.shields.io/badge/Historical_Data-75+_Years-purple.svg)](README.md)
 
-**HomeCourt AI** is a production-ready machine learning platform that predicts NBA game outcomes with 60.1% accuracy using advanced statistical modeling and 75+ years of professional basketball data. Built with enterprise-grade data engineering practices, sophisticated feature engineering, and scalable ML architecture.
+**HomeCourt AI** is a production-ready machine learning platform that predicts NBA game outcomes with 60.1% accuracy using advanced statistical modeling and 75+ years of professional basketball data. Now featuring an **interactive Streamlit web application** for real-time predictions and model exploration.
 
 > 🎯 **Mission**: Democratize sports analytics through cutting-edge machine learning and real-time prediction capabilities
 > 
 > 📈 **Impact**: Process 7,900+ historical matchups to deliver actionable insights for sports analysts, betting platforms, and NBA enthusiasts
+> 
+> 🚀 **NEW**: Interactive web app now live! Explore model performance and make predictions with a user-friendly interface.
 
 ---
 
 ## 🌟 Key Achievements
 
-🏆 **60.1% Prediction Accuracy** – Outperforms random baseline by 20%+ with balanced precision/recall  
+🏆 **60% Prediction Accuracy** – Outperforms random baseline by 20%+ with balanced precision/recall  
 📊 **75+ Years of Data** – Comprehensive analysis spanning 1947-2025 NBA seasons  
 ⚡ **Real-time Processing** – Scalable pipeline handling 100+ games per season simulation  
 🔬 **Advanced Feature Engineering** – Multi-dimensional team strength indicators and performance differentials  
 🎯 **Production-Ready Code** – Modular architecture with automated data cleaning and robust error handling  
+🌐 **Interactive Web App** – Streamlit-powered interface for live predictions and model visualization  
+
+---
+
+## 🚀 New Feature: Interactive Web Application
+
+### 📱 Streamlit App Overview
+The HomeCourt AI platform now includes a fully functional web application built with Streamlit, providing:
+
+- **🏠 Welcome Dashboard**: Professional landing page with project overview
+- **📊 Model Performance Analytics**: Real-time confusion matrix, classification reports, and feature importance visualization
+- **🔮 Live Prediction Engine**: Select any two NBA teams and get instant win probability predictions
+- **⚡ Cached Model Training**: Optimized performance with `@st.cache_resource` for lightning-fast interactions
+
+### 🎮 App Features
+```python
+✅ Interactive Team Selection    # Choose from all 2025 season teams
+✅ Real-time Predictions        # Instant win probability calculations  
+✅ Performance Visualizations   # Confusion matrix heatmaps & metrics
+✅ Feature Importance Charts    # Understanding model decision factors
+✅ Professional UI/UX          # Clean, intuitive interface design
+```
+
+### 🌐 Running the Web App
+```bash
+# Install Streamlit (if not already installed)
+pip install streamlit
+
+# Launch the interactive application
+streamlit run app.py
+
+# Access via browser at: http://localhost:8501
+```
 
 ---
 
@@ -30,7 +66,7 @@
 
 | Metric | Score | Industry Benchmark | Status |
 |--------|-------|-------------------|---------|
-| **Overall Accuracy** | 60.1% | 55-65% | ✅ **Production Ready** |
+| **Overall Accuracy** | 60% | 55-65% | ✅ **Production Ready** |
 | **Precision (Home Wins)** | 60.0% | 55-70% | ✅ **Competitive** |
 | **Recall (Home Wins)** | 63.2% | 50-65% | ✅ **Above Target** |
 | **F1-Score** | 0.62 | 0.55-0.70 | ✅ **Strong Performance** |
@@ -58,17 +94,19 @@
 📈 NumPy                # Numerical computing
 📉 Matplotlib/Seaborn   # Data visualization
 🔧 Jupyter              # Interactive development
+🌐 Streamlit            # Web application framework
 ```
 
-### Data Pipeline Architecture
+### Updated Data Pipeline Architecture
 ```mermaid
 graph LR
     A[Raw NBA Data] --> B[Data Cleaning]
     B --> C[Feature Engineering]
     C --> D[Game Simulation]
     D --> E[Model Training]
-    E --> F[Prediction API]
-    F --> G[Dashboard]
+    E --> F[Streamlit Web App]
+    F --> G[Live Predictions]
+    F --> H[Performance Dashboard]
 ```
 
 ### Advanced Features
@@ -77,6 +115,7 @@ graph LR
 - **Probabilistic Target Generation** – Creates realistic win probabilities based on team strength metrics
 - **Standardized Feature Scaling** – Ensures optimal model convergence and performance
 - **Cross-Validation Ready** – Stratified sampling for unbiased model evaluation
+- **🆕 Interactive Model Caching** – Streamlit optimization for instant user interactions
 
 ---
 
@@ -95,6 +134,7 @@ graph LR
 - **Neural Networks**: Deep learning architecture roadmap for complex pattern recognition
 
 ### 🎨 Visualization & Reporting
+- **🆕 Interactive Streamlit Dashboard**: Real-time model exploration and predictions
 - **Confusion Matrix Heatmaps**: Professional-grade model performance visualization
 - **Feature Importance Rankings**: Interpretable model decision factors
 - **Performance Dashboards**: Real-time accuracy and prediction confidence metrics
@@ -102,7 +142,7 @@ graph LR
 
 ---
 
-## 📁 Project Structure
+## 📁 Updated Project Structure
 
 ```
 HomeCourt-AI/
@@ -112,20 +152,27 @@ HomeCourt-AI/
 │   ├── Team Totals.csv             # Comprehensive team metrics
 │   └── Player Totals.csv           # Career player statistics
 ├── 🐍 main.py                      # Primary ML pipeline & training
+├── 🌐 app.py                       # 🆕 Streamlit web application
 ├── 🔧 jupyter_converter.py         # Data preprocessing utilities
 ├── 📊 csv_viewer.ipynb             # Interactive data exploration
-├── 📋 requirements.txt             # Python dependencies
+├── 📋 requirements.txt             # Updated Python dependencies
 ├── 🚀 api/                         # FastAPI prediction endpoints (Coming soon)
-├── 🎨 dashboard/                   # Streamlit visualization app (Coming soon)
 ├── 🧪 tests/                       # Unit tests & validation (Coming soon)
 └── 📚 docs/                        # Technical documentation (Coming soon)
 ```
 
 ---
 
-## 🔮 Roadmap & Future Development
+## 🔮 Updated Roadmap & Future Development
 
-### 🚀 Phase 1: Model Enhancement (In Development)
+### ✅ Phase 1: Interactive Interface (COMPLETED - July 2025)
+- [x] **Streamlit Web Application**
+  - Professional landing page and navigation
+  - Real-time model performance visualization
+  - Interactive team selection and prediction interface
+  - Cached model training for optimal performance
+
+### 🚀 Phase 2: Model Enhancement (In Development)
 - [ ] **Advanced Ensemble Methods**
   - XGBoost implementation with hyperparameter optimization
   - Random Forest with feature bagging
@@ -136,29 +183,17 @@ HomeCourt-AI/
   - Head-to-head historical matchup weights
   - Recent form momentum indicators (L10 games)
 
-### ⚡ Phase 2: Real-time Integration (Coming Soon)
-- [ ] **Live Data Pipeline**
-  - NBA API integration for real-time statistics
-  - Automated daily model retraining
-  - Live game probability updates
-  - Injury report and lineup change integration
+### ⚡ Phase 3: Production Scaling (Coming Soon)
+- [ ] **Enhanced Web Application**
+  - User authentication and personalized dashboards
+  - Historical prediction tracking and accuracy analysis
+  - Advanced visualization with Plotly integration
+  - Mobile-responsive design improvements
 - [ ] **Production API Development**
   - FastAPI REST endpoints with sub-100ms response times
   - Redis caching for prediction optimization
   - Rate limiting and authentication
   - Comprehensive API documentation
-
-### 🎨 Phase 3: User Experience (Coming Soon)
-- [ ] **Interactive Dashboard**
-  - Streamlit-based prediction interface
-  - Real-time confidence intervals and uncertainty visualization
-  - Historical performance analytics
-  - Custom model comparison tools
-- [ ] **Mobile Application**
-  - React Native cross-platform app
-  - Push notifications for high-confidence predictions
-  - Social features and prediction leaderboards
-  - Offline prediction capabilities
 
 ### 🧠 Phase 4: Advanced AI (Coming Soon)
 - [ ] **Deep Learning Architecture**
@@ -197,6 +232,7 @@ HomeCourt-AI/
 Python 3.8+
 Git
 4GB+ RAM
+Streamlit (for web app)
 ```
 
 ### Installation & Setup
@@ -212,17 +248,28 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the complete ML pipeline
+# Option 1: Run the complete ML pipeline
 python main.py
+
+# Option 2: 🆕 Launch the interactive web app
+streamlit run app.py
 ```
 
-### Expected Output
+### Expected Output (CLI)
 ```
 ✅ Dataset loaded: 1,876 team seasons processed
 ✅ Generated 7,900 realistic game simulations  
 ✅ Model trained with 60.1% accuracy
 ✅ Feature importance analysis completed
 ✅ Confusion matrix visualization generated
+```
+
+### Expected Output (Web App)
+```
+🌐 Streamlit app running on: http://localhost:8501
+🏀 Interactive NBA prediction interface loaded
+📊 Real-time model performance dashboard available
+🔮 Live prediction engine ready for team selection
 ```
 
 ---
@@ -235,6 +282,9 @@ python main.py
 | Lakers vs Pistons | 78.3% | 🏠 **Lakers Win** | +15.2 PPG diff, +0.187 Win% diff |
 | Warriors vs Nets | 72.1% | 🏠 **Warriors Win** | +8.7 PPG diff, +0.134 Win% diff |
 | Nuggets vs Magic | 69.8% | 🏠 **Nuggets Win** | +12.1 PPG diff, +0.156 Win% diff |
+
+### 🆕 Try Interactive Predictions
+Experience these predictions live in the Streamlit app! Select any teams from the 2025 season and get instant probability calculations with detailed feature breakdowns.
 
 ---
 
@@ -253,7 +303,7 @@ We welcome contributions from data scientists, basketball analysts, and ML engin
 - 🔬 **Advanced modeling techniques** (Neural networks, ensemble methods)
 - 📊 **New feature engineering** (Player chemistry, referee bias, weather)
 - 🚀 **Performance optimization** (Model serving, caching, distributed training)
-- 🎨 **Visualization improvements** (Interactive dashboards, mobile responsiveness)
+- 🎨 **Web app enhancements** (UI/UX improvements, mobile responsiveness)
 - 📚 **Documentation** (API docs, tutorial notebooks, video explanations)
 
 ---
@@ -278,6 +328,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <div align="center">
 
 ### ⭐ Star this repository if HomeCourt AI helps with your sports analytics projects!
+
+**🆕 Try the interactive web app: `streamlit run app.py`**
 
 **Built with ❤️ by a passionate developer combining sports analytics with cutting-edge machine learning**
 
