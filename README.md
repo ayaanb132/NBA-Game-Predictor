@@ -48,14 +48,15 @@ The HomeCourt AI platform now includes a fully functional web application built 
 ```
 
 ### 🌐 Running the Web App
+
+**🚀 Live Demo**: https://homecourtai.streamlit.app
+
 ```bash
 # Install Streamlit (if not already installed)
 pip install streamlit
 
-# Launch the interactive application
+# Launch the interactive application locally
 streamlit run app.py
-
-# Access via browser at: http://localhost:8501
 ```
 
 ---
