@@ -69,18 +69,63 @@ def train_model():
 
 def show_home_page():
     """Displays the welcome page of the app."""
-    st.image("https://cdn.bleacherreport.net/images/team_logos/328x328/nba.png", width=150)
+    st.image("basketball.jpg", use_column_width=True)
     st.title("HomeCourt AI: NBA Game Predictor")
+    
     st.markdown("""
-        Welcome to **HomeCourt AI**, your MVP for NBA game predictions.
+        **Welcome to HomeCourt AI, your MVP for NBA game predictions!**
         
-        This application leverages machine learning to forecast game outcomes based on historical team performance data. Our goal is to provide insightful, data-driven predictions to give you a competitive edge.
+        This application leverages a robust dataset of historical team and player performance to forecast game outcomes with a data-driven edge. Move beyond simple win-loss records and dive into deeper analytics.
         
-        **What you can do:**
-        - **Explore Model Performance:** See how our prediction model performs on historical data.
-        - **Make Predictions:** Select two teams and get an instant prediction for their matchup.
+        ### What you can do:
+        - **🔮 Make Predictions:** Select two teams and get an instant prediction for their matchup, complete with win probabilities.
+        - **📊 Explore Model Performance:** See how our prediction model performs and understand the key factors driving its decisions.
         
-        *This is an MVP built for demonstration. The model uses simulated game data based on real season stats.*
+        *This is an MVP built for demonstration. The model uses simulated game data based on real season stats to train.*
+    """)
+
+    st.divider()
+
+    st.header("Powered by Comprehensive NBA Data")
+    st.markdown("""
+        Our predictions aren't just based on wins and losses. We leverage a rich dataset spanning decades of NBA history, including both traditional and advanced statistics. This depth of data allows our model to capture nuanced team strengths and weaknesses.
+        
+        Here's a glimpse of the types of stats we use:
+    """)
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.info("**Core Player Stats**")
+        st.markdown("""
+            - Points Per Game (PPG)
+            - Field Goal % (FG%)
+            - 3-Point % (3P%)
+            - Rebounds Per Game (RPG)
+            - Assists Per Game (APG)
+        """)
+
+    with col2:
+        st.info("**Advanced Analytics**")
+        st.markdown("""
+            - Player Efficiency Rating (PER)
+            - True Shooting % (TS%)
+            - Win Shares (WS)
+            - Box Plus/Minus (BPM)
+            - Usage Percentage (USG%)
+        """)
+
+    with col3:
+        st.info("**Team & Opponent Data**")
+        st.markdown("""
+            - Team Win/Loss Records
+            - Points Per 100 Possessions
+            - Opponent Field Goal %
+            - Turnover Percentage (TOV%)
+            - Pace Factor
+        """)
+    
+    st.markdown("""
+        *...and many more, giving our model a holistic view of team performance.*
     """)
 
 def show_performance_page(accuracy, report, cm, feature_importance):
